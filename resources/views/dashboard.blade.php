@@ -1,6 +1,6 @@
 <x-app-layout>
 <div class="container">
-    <h1 class="mb-4">Admin Dashboard</h1>
+    <h1 class="mb-4">Dashboard</h1>
 
     <div class="row">
         <!-- Summary Cards -->

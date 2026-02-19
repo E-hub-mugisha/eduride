@@ -22,19 +22,19 @@
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @isset($header)
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endisset
-
         <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
+        <footer class="bg-blue-900 text-gray-100 mt-8">
+            <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+                <!-- Left: Logo / Site name -->
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-yellow-400">EduRide</a>
+                    <p class="text-sm text-gray-300">© {{ date('Y') }} All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 

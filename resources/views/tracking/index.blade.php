@@ -1,6 +1,6 @@
 <x-app-layout>
 <div class="container-fluid px-4 py-4">
-    <div id="map" class="w-full h-[80vh] rounded-xl shadow-lg"></div>
+    <div id="map" style="width:100%;height:600px;"></div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
