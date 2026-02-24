@@ -12,35 +12,90 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+
+                    {{-- COMMON --}}
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        Dashboard
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                        {{ __('users') }}
+
+                    {{-- ADMIN MENU --}}
+                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                        Users
                     </x-nav-link>
-                    <x-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.index')">
-                        {{ __('vehicles') }}
+
+                    <x-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
+                        Vehicles
                     </x-nav-link>
-                    <x-nav-link :href="route('drivers.index')" :active="request()->routeIs('drivers.index')">
-                        {{ __('drivers') }}
+
+                    <x-nav-link :href="route('drivers.index')" :active="request()->routeIs('drivers.*')">
+                        Drivers
                     </x-nav-link>
-                    <x-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.index')">
-                        {{ __('routes') }}
+
+                    <x-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.*')">
+                        Routes
                     </x-nav-link>
-                    <x-nav-link :href="route('trips.index')" :active="request()->routeIs('trips.index')">
-                        {{ __('trips') }}
+
+                    <x-nav-link :href="route('trips.index')" :active="request()->routeIs('trips.*')">
+                        Trips
                     </x-nav-link>
-                    <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.index')">
-                        {{ __('students') }}
+
+                    <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+                        Students
                     </x-nav-link>
-                    <x-nav-link :href="route('subscriptions.index')" :active="request()->routeIs('subscriptions.index')">
-                        {{ __('subscriptions') }}
+
+                    <x-nav-link :href="route('subscriptions.index')" :active="request()->routeIs('subscriptions.*')">
+                        Subscriptions
                     </x-nav-link>
+
                     <x-nav-link :href="route('live.tracking')" :active="request()->routeIs('live.tracking')">
-                        {{ __('live tracking') }}
+                        Live Tracking
                     </x-nav-link>
+                    @endif
+
+                    {{-- MANAGER MENU --}}
+                    @if(Auth::user()->role === 'manager')
+                    <x-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
+                        Vehicles
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.*')">
+                        Routes
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('trips.index')" :active="request()->routeIs('trips.*')">
+                        Trips
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('live.tracking')" :active="request()->routeIs('live.tracking')">
+                        Live Tracking
+                    </x-nav-link>
+                    @endif
+
+                    {{-- DRIVER MENU --}}
+                    @if(Auth::user()->role === 'driver')
+                    <x-nav-link :href="route('trips.index')" :active="request()->routeIs('trips.*')">
+                        My Trips
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('live.tracking')" :active="request()->routeIs('live.tracking')">
+                        Live Map
+                    </x-nav-link>
+                    @endif
+
+                    {{-- PARENT MENU --}}
+                    @if(Auth::user()->role === 'parent')
+                    <x-nav-link :href="route('subscriptions.index')" :active="request()->routeIs('subscriptions.*')">
+                        My Children
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('live.tracking')" :active="request()->routeIs('live.tracking')">
+                        Track Bus
+                    </x-nav-link>
+                    @endif
+
                 </div>
-        
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -92,9 +147,39 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                Dashboard
             </x-responsive-nav-link>
+
+            @if(Auth::user()->role === 'admin')
+            <x-responsive-nav-link :href="route('users.index')">Users</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('vehicles.index')">Vehicles</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('drivers.index')">Drivers</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('routes.index')">Routes</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('trips.index')">Trips</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('students.index')">Students</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('subscriptions.index')">Subscriptions</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('live.tracking')">Live Tracking</x-responsive-nav-link>
+            @endif
+
+            @if(Auth::user()->role === 'manager')
+            <x-responsive-nav-link :href="route('vehicles.index')">Vehicles</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('routes.index')">Routes</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('trips.index')">Trips</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('live.tracking')">Live Tracking</x-responsive-nav-link>
+            @endif
+
+            @if(Auth::user()->role === 'driver')
+            <x-responsive-nav-link :href="route('trips.index')">My Trips</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('live.tracking')">Live Map</x-responsive-nav-link>
+            @endif
+
+            @if(Auth::user()->role === 'parent')
+            <x-responsive-nav-link :href="route('subscriptions.index')">My Children</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('live.tracking')">Track Bus</x-responsive-nav-link>
+            @endif
+
         </div>
 
         <!-- Responsive Settings Options -->

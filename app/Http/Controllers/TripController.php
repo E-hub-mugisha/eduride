@@ -14,6 +14,7 @@ use App\Notifications\TripCompletedNotification;
 use App\Notifications\TripDelayNotification;
 use App\Notifications\TripStartedNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -21,7 +22,17 @@ class TripController extends Controller
 {
     public function index()
     {
-        $trips = Trip::latest()->paginate(10);
+        $user = Auth::user();
+
+        if ($user->role === 'driver') {
+            // Driver sees only their assigned trips
+            $trips = Trip::where('driver_id', $user->id)
+                ->latest()
+                ->paginate(10);
+        } else {
+            // Admin, Manager, Parent see all trips
+            $trips = Trip::latest()->paginate(10);
+        }
         return view('trips.index', compact('trips'));
     }
 
@@ -72,7 +83,7 @@ class TripController extends Controller
 
         foreach ($subscriptions as $sub) {
             if ($sub->parent?->email && $sub->student) {
-                Log::info('Sending TripCompletedMail to: '.$sub->parent->email);
+                Log::info('Sending TripCompletedMail to: ' . $sub->parent->email);
                 Mail::to($sub->parent->email)
                     ->send(new TripCompletedMail($trip, $sub->student));
             }

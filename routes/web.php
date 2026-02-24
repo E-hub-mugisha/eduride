@@ -16,7 +16,11 @@ use App\Mail\TripStartedMail;
 use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
-    return view('welcome');
+    $totalTrips = \App\Models\Trip::count();
+    $totalVehicles = \App\Models\Vehicle::count();
+    $totalDrivers = \App\Models\User::where('role','driver')->count();
+    $totalStudents = \App\Models\Student::count();
+    return view('welcome', compact('totalTrips', 'totalVehicles', 'totalDrivers', 'totalStudents'));
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
