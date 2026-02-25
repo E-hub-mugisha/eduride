@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
+
 <div class="container mt-4">
     <h4>Trip Map - {{ $trip->route->name }}</h4>
     <p>Driver: {{ $trip->driver->name }} | Vehicle: {{ $trip->vehicle->plate_number }}</p>
@@ -72,4 +74,5 @@ setInterval(()=>{
         .catch(err => console.error('Error fetching location:', err));
 }, 5000);
 </script>
-</x-app-layout>
+
+@endsection

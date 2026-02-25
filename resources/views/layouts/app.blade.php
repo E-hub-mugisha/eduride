@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'EDURIDE') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,27 +15,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('dash/assets/css/styles.min.css') }}" />
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
         @include('layouts.navigation')
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-        <footer class="bg-blue-900 text-gray-100 mt-8">
-            <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
-                <!-- Left: Logo / Site name -->
-                <div class="mb-4 md:mb-0">
-                    <a href="#" class="text-2xl font-bold text-yellow-400">EduRide</a>
-                    <p class="text-sm text-gray-300">© {{ date('Y') }} All rights reserved.</p>
-                </div>
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+
+            <div class="body-wrapper-inner">
+                @yield('content')
             </div>
-        </footer>
+        </div>
     </div>
+    <script src="{{ asset('dash/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('dash/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('dash/assets/js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('dash/assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('dash/assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('dash/assets/libs/simplebar/dist/simplebar.js') }}"></script>
+    <script src="{{ asset('dash/assets/js/dashboard.js') }}"></script>
+    <!-- solar icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
 </body>
 
 </html>

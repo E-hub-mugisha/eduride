@@ -1,52 +1,64 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
 <div class="container-fluid px-4 py-4">
     <div id="map" style="width:100%;height:600px;"></div>
 </div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-const map = L.map('map').setView([-1.9577, 30.1127], 12);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    const map = L.map('map').setView([-1.9577, 30.1127], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-let markers = {};
-let polylines = {};
+    let markers = {};
+    let polylines = {};
 
-async function fetchTrips() {
-    const response = await fetch('{{ route("api.trips") }}');
-    const trips = await response.json();
+    async function fetchTrips() {
+        const response = await fetch('{{ route("api.trips") }}');
+        const trips = await response.json();
 
-    trips.forEach(trip => {
-        const { id, vehicle, driver, route, current_lat, current_lng } = trip;
+        trips.forEach(trip => {
+            const {
+                id,
+                vehicle,
+                driver,
+                route,
+                current_lat,
+                current_lng
+            } = trip;
 
-        // Marker
-        const popupText = `<b>${vehicle.plate_number}</b><br>${driver?.name || 'N/A'}<br>${route.name}`;
-        if (markers[id]) {
-            markers[id].setLatLng([current_lat, current_lng]);
-        } else {
-            markers[id] = L.marker([current_lat, current_lng]).addTo(map).bindPopup(popupText);
-        }
+            // Marker
+            const popupText = `<b>${vehicle.plate_number}</b><br>${driver?.name || 'N/A'}<br>${route.name}`;
+            if (markers[id]) {
+                markers[id].setLatLng([current_lat, current_lng]);
+            } else {
+                markers[id] = L.marker([current_lat, current_lng]).addTo(map).bindPopup(popupText);
+            }
 
-        // Polyline
-        const latlngs = [[current_lat, current_lng]]; // start with current location
-        if (route.polyline) {
-            route.polyline.forEach(p => {
-                if (p) latlngs.push(p);
-            });
-        }
+            // Polyline
+            const latlngs = [
+                [current_lat, current_lng]
+            ]; // start with current location
+            if (route.polyline) {
+                route.polyline.forEach(p => {
+                    if (p) latlngs.push(p);
+                });
+            }
 
-        if (polylines[id]) {
-            polylines[id].setLatLngs(latlngs);
-        } else {
-            polylines[id] = L.polyline(latlngs, { color: 'blue' }).addTo(map);
-        }
-    });
-}
+            if (polylines[id]) {
+                polylines[id].setLatLngs(latlngs);
+            } else {
+                polylines[id] = L.polyline(latlngs, {
+                    color: 'blue'
+                }).addTo(map);
+            }
+        });
+    }
 
-fetchTrips();
-setInterval(fetchTrips, 5000);
+    fetchTrips();
+    setInterval(fetchTrips, 5000);
 </script>
 
-</x-app-layout>
+@endsection

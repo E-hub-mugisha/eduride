@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
 <div class="container mt-4">
 
     <div class="d-flex justify-content-between mb-3">
@@ -9,7 +10,7 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
     <table class="table table-bordered">
@@ -31,14 +32,14 @@
                 <td>{{ $driver->vehicle ? $driver->vehicle->plate_number : '-' }}</td>
                 <td>
                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                            data-bs-target="#editModal{{ $driver->id }}">Edit</button>
+                        data-bs-target="#editModal{{ $driver->id }}">Edit</button>
 
                     <form action="{{ route('drivers.destroy', $driver->id) }}"
-                          method="POST" class="d-inline">
+                        method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-sm btn-danger"
-                                onclick="return confirm('Delete this driver?')">Delete</button>
+                            onclick="return confirm('Delete this driver?')">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -72,9 +73,9 @@
                                     <select name="vehicle_id" class="form-control">
                                         <option value="">-- None --</option>
                                         @foreach($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->id }}" {{ $driver->vehicle && $driver->vehicle->id==$vehicle->id ? 'selected':'' }}>
-                                                {{ $vehicle->plate_number }} ({{ ucfirst($vehicle->status) }})
-                                            </option>
+                                        <option value="{{ $vehicle->id }}" {{ $driver->vehicle && $driver->vehicle->id==$vehicle->id ? 'selected':'' }}>
+                                            {{ $vehicle->plate_number }} ({{ ucfirst($vehicle->status) }})
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -124,7 +125,7 @@
                         <select name="vehicle_id" class="form-control">
                             <option value="">-- None --</option>
                             @foreach($vehicles as $vehicle)
-                                <option value="{{ $vehicle->id }}">{{ $vehicle->plate_number }} ({{ ucfirst($vehicle->status) }})</option>
+                            <option value="{{ $vehicle->id }}">{{ $vehicle->plate_number }} ({{ ucfirst($vehicle->status) }})</option>
                             @endforeach
                         </select>
                     </div>
@@ -142,4 +143,4 @@
     </div>
 </div>
 
-</x-app-layout>
+@endsection

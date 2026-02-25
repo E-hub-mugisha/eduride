@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
+
 <div class="container mt-4">
 
     <div class="d-flex justify-content-between mb-3">
@@ -9,7 +11,7 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
     <table class="table table-bordered">
@@ -39,11 +41,11 @@
 
                     <!-- Delete -->
                     <form action="{{ route('vehicles.destroy', $vehicle->id) }}"
-                          method="POST" class="d-inline">
+                        method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-sm btn-danger"
-                                onclick="return confirm('Delete this vehicle?')">
+                            onclick="return confirm('Delete this vehicle?')">
                             Delete
                         </button>
                     </form>
@@ -67,22 +69,22 @@
                                 <div class="mb-3">
                                     <label>Plate Number</label>
                                     <input type="text" name="plate_number"
-                                           class="form-control"
-                                           value="{{ $vehicle->plate_number }}" required>
+                                        class="form-control"
+                                        value="{{ $vehicle->plate_number }}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label>Model</label>
                                     <input type="text" name="model"
-                                           class="form-control"
-                                           value="{{ $vehicle->model }}" required>
+                                        class="form-control"
+                                        value="{{ $vehicle->model }}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label>Capacity</label>
                                     <input type="number" name="capacity"
-                                           class="form-control"
-                                           value="{{ $vehicle->capacity }}" required>
+                                        class="form-control"
+                                        value="{{ $vehicle->capacity }}" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -158,4 +160,4 @@
     </div>
 </div>
 
-</x-app-layout>
+@endsection
