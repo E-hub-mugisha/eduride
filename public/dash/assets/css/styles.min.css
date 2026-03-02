@@ -16204,7 +16204,7 @@ textarea.form-control-lg {
 }
 .left-sidebar {
   width: 270px;
-  background-color: #fff;
+  background-color: #075283;
   position: absolute;
   transition: 0.2s ease-in;
   box-shadow: 0px 2px 6px rgba(37, 83, 185, 0.1);
@@ -16246,7 +16246,7 @@ textarea.form-control-lg {
 }
 
 .sidebar-nav ul .sidebar-item .sidebar-link {
-  color: var(--bs-dark);
+  color: #ffffff;
   display: flex;
   white-space: nowrap;
   align-items: center;
@@ -16424,7 +16424,7 @@ textarea.form-control-lg {
   background: #fff;
   padding: 0 10px;
   margin-bottom: 24px;
-  border-radius: 18px;
+  /* border-radius: 18px; */
 }
 .app-header .container-fluid, .app-header .container-sm, .app-header .container-md, .app-header .container-lg, .app-header .container-xl, .app-header .container-xxl {
   max-width: 1300px;
@@ -16525,7 +16525,7 @@ textarea.form-control-lg {
 
 #main-wrapper[data-layout=vertical][data-sidebar-position=fixed] .left-sidebar {
   position: fixed;
-  top: 72px;
+  /* top: 72px; */
 }
 #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-fluid, #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-sm, #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-md, #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-lg, #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-xl, #main-wrapper[data-layout=vertical][data-header-position=fixed] .body-wrapper > .container-xxl {
   padding-top: calc(75px + 30px);
