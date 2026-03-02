@@ -95,7 +95,6 @@
                                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                                         <option value="driver" {{ $user->role == 'driver' ? 'selected' : '' }}>Driver</option>
                                         <option value="parent" {{ $user->role == 'parent' ? 'selected' : '' }}>Parent</option>
-                                        <option value="staff" {{ $user->role == 'staff' ? 'selected' : '' }}>Staff</option>
                                     </select>
                                 </div>
                             </div>
@@ -154,7 +153,6 @@
                             <option value="admin">Admin</option>
                             <option value="driver">Driver</option>
                             <option value="parent">Parent</option>
-                            <option value="staff">Staff</option>
                         </select>
                     </div>
 

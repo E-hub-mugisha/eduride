@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
 <div class="container mt-4">
     <h4>Trip: {{ $trip->route->name }}</h4>
     <p>Vehicle: {{ $trip->vehicle->plate_number }} | Driver: {{ $trip->driver->name }}</p>
@@ -73,4 +74,5 @@ function startTracking() {
 
 document.getElementById('startTrackingBtn').addEventListener('click', startTracking);
 </script>
-</x-app-layout>
+
+@endsection

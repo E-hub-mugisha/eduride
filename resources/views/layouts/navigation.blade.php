@@ -34,7 +34,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link primary-hover-bg" href="{{ route('vehicles.index')}}" :active="request()->routeIs('vehicles.*')">
-                        Vehicles
+                        Buses
                     </a>
                 </li>
 
@@ -79,7 +79,7 @@
                 @if(Auth::user()->role === 'manager')
                 <li class="sidebar-item">
                     <a class="sidebar-link primary-hover-bg" href="{{ route('vehicles.index')}}" :active="request()->routeIs('vehicles.*')">
-                        Vehicles
+                        Buses
                     </a>
                 </li>
 
@@ -105,7 +105,7 @@
                 {{-- DRIVER MENU --}}
                 @if(Auth::user()->role === 'driver')
                 <li class="sidebar-item">
-                    <a class="sidebar-link primary-hover-bg" href="route('trips.index')" :active="request()->routeIs('trips.*')">
+                    <a class="sidebar-link primary-hover-bg" href="{{ route('trips.index')}}" :active="request()->routeIs('trips.*')">
                         My Trips
                     </a>
                 </li>
@@ -120,13 +120,13 @@
                 {{-- PARENT MENU --}}
                 @if(Auth::user()->role === 'parent')
                 <li class="sidebar-item">
-                    <a class="sidebar-link primary-hover-bg" href="route('subscriptions.index')" :active="request()->routeIs('subscriptions.*')">
+                    <a class="sidebar-link primary-hover-bg" href="{{ route('subscriptions.index')}}" :active="request()->routeIs('subscriptions.*')">
                         My Children
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link primary-hover-bg" href="route('live.tracking')" :active="request()->routeIs('live.tracking')">
+                    <a class="sidebar-link primary-hover-bg" href="{{ route('live.tracking')}}" :active="request()->routeIs('live.tracking')">
                         Track Bus
                     </a>
                 </li>
