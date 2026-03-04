@@ -22,7 +22,7 @@
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Username/Email</label>
-                <input type="email" class="form-control" name="email" id="email" required autofocus autocomplete="username">
+                <input type="email" class="form-control" name="email" id="email" required autofocus>
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
