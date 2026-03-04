@@ -22,11 +22,11 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" id="name" required autofocus>
+                <input type="text" class="form-control" name="name" id="name" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" required autofocus >
+                <input type="email" class="form-control" name="email" id="email" required >
             </div>
             <!-- role -->
             <div class="col-md-6 mb-3">
