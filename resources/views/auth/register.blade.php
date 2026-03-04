@@ -1,11 +1,22 @@
 @extends('layouts.guest')
 @section('content')
+<!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <div class="card mb-0">
     <div class="card-body">
         <a href="/" class="text-nowrap logo-img text-center d-block py-3 w-100">
             EDURIDE
         </a>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <p class="text-center">create new account</p>
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -23,7 +34,7 @@
                 <select name="role" class="form-control" required>
                     <option value="">Select Role</option>
                     <option value="parent">parent</option>
-                    <option value="drive">drive</option>
+                    <option value="driver">driver</option>
                     <option value="admin">Admin</option>
                 </select>
             </div>

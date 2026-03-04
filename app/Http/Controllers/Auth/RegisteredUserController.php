@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             ->numbers()
             ->symbols(),  // ensure symbols
             ],
-            'role' => ['required', 'in:tenant,owner,admin']
+            'role' => ['required', 'in:driver,parent,admin']
         ]);
 
         $user = User::create([
