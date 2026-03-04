@@ -17,15 +17,58 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" id="email" required autofocus autocomplete="email">
             </div>
-            <div class="mb-4">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" required>
+            <!-- role -->
+            <div class="col-md-6 mb-3">
+                <label>Role</label>
+                <select name="role" class="form-control" required>
+                    <option value="">Select Role</option>
+                    <option value="parent">parent</option>
+                    <option value="drive">drive</option>
+                    <option value="admin">Admin</option>
+                </select>
             </div>
 
-            <div class="mb-4">
-                <label for="password_confirmation" class="form-label">password confirmation</label>
-                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" autocomplete="new-password" required>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Password</label>
+                <div class="position-relative">
+                    <input type="password" name="password" id="passwordField"
+                        class="form-control pe-5" required>
+
+                    <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                        id="togglePassword"
+                        style="font-size: 1.2rem; cursor: pointer; color: #6c757d;"></i>
+                </div>
             </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Confirm Password</label>
+                <div class="position-relative">
+                    <input type="password" name="password_confirmation" id="passwordConfirmationField"
+                        class="form-control pe-5" required>
+
+                    <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                        id="toggleConfirmationPassword"
+                        style="font-size: 1.2rem; cursor: pointer; color: #6c757d;"></i>
+                </div>
+            </div>
+
+            <script>
+                function togglePasswordVisibility(toggleId, fieldId) {
+                    const toggleIcon = document.getElementById(toggleId);
+                    const passwordField = document.getElementById(fieldId);
+
+                    toggleIcon.addEventListener('click', function() {
+                        const type = passwordField.type === 'password' ? 'text' : 'password';
+                        passwordField.type = type;
+
+                        this.classList.toggle('bi-eye');
+                        this.classList.toggle('bi-eye-slash');
+                    });
+                }
+
+                togglePasswordVisibility('togglePassword', 'passwordField');
+                togglePasswordVisibility('toggleConfirmationPassword', 'passwordConfirmationField');
+            </script>
 
             <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4">Create account</button>
             <div class="d-flex align-items-center justify-content-center">

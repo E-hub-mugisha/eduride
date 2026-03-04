@@ -1,33 +1,33 @@
 <style>
     /* Online status dot */
-.status-dot {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    background: #28c76f;
-    border: 2px solid #fff;
-    border-radius: 50%;
-}
-
-/* Desktop hover dropdown ONLY */
-@media (hover: hover) and (pointer: fine) {
-    .user-dropdown:hover > .dropdown-menu {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        margin-top: 6px;
+    .status-dot {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        background: #28c76f;
+        border: 2px solid #fff;
+        border-radius: 50%;
     }
-}
 
-/* Default hidden */
-.dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 1055;
-}
+    /* Desktop hover dropdown ONLY */
+    @media (hover: hover) and (pointer: fine) {
+        .user-dropdown:hover>.dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            margin-top: 6px;
+        }
+    }
+
+    /* Default hidden */
+    .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        z-index: 1055;
+    }
 </style>
 
 <!--  Header Start -->
@@ -40,8 +40,8 @@
                 </a>
             </li>
             <span class="text-muted d-none d-sm-inline">
-    Welcome, {{ Auth::user()->name }}
-</span>
+                Welcome, {{ Auth::user()->name }}
+            </span>
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
@@ -102,4 +102,3 @@
     </nav>
 </header>
 <!--  Header End -->
-

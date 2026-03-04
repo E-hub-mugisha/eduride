@@ -6,6 +6,15 @@
         <a href="/" class="text-nowrap logo-img text-center d-block py-3 w-100">
             EDURIDE
         </a>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <p class="text-center">Log into your account</p>
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -13,10 +22,30 @@
                 <label for="email" class="form-label">Username/Email</label>
                 <input type="email" class="form-control" name="email" id="email" required autofocus autocomplete="username">
             </div>
-            <div class="mb-4">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" required>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <div class="position-relative">
+                    <input type="password" name="password" id="passwordField"
+                        class="form-control pe-5" required>
+
+                    <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer"
+                        id="togglePassword"
+                        style="font-size: 1.2rem; cursor: pointer; color: #6c757d;"></i>
+                </div>
             </div>
+
+            <script>
+                const togglePassword = document.getElementById('togglePassword');
+                const passwordField = document.getElementById('passwordField');
+
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordField.setAttribute('type', type);
+
+                    this.classList.toggle('bi-eye');
+                    this.classList.toggle('bi-eye-slash');
+                });
+            </script>
 
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <div class="form-check">
