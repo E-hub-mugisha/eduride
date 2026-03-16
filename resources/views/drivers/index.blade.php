@@ -19,7 +19,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Vehicle</th>
+                <th>Bus</th>
                 <th width="200">Action</th>
             </tr>
         </thead>
@@ -69,7 +69,7 @@
                                     <input type="text" name="phone" class="form-control" value="{{ $driver->phone }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label>Assign Vehicle</label>
+                                    <label>Assign Bus</label>
                                     <select name="vehicle_id" class="form-control">
                                         <option value="">-- None --</option>
                                         @foreach($vehicles as $vehicle)

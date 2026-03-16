@@ -4,9 +4,9 @@
 <div class="container mt-4">
 
     <div class="d-flex justify-content-between mb-3">
-        <h4>Vehicle Management</h4>
+        <h4>Bus Management</h4>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-            + Add Vehicle
+            + Add Bus
         </button>
     </div>
 
@@ -61,7 +61,7 @@
 
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Edit Vehicle</h5>
+                                <h5 class="modal-title">Edit bus</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
@@ -99,7 +99,7 @@
 
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Update Vehicle</button>
+                                <button type="submit" class="btn btn-primary">Update Bus</button>
                             </div>
                         </div>
                     </form>
@@ -121,7 +121,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Vehicle</h5>
+                    <h5 class="modal-title">Add Bus</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
@@ -153,7 +153,7 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Add Vehicle</button>
+                    <button type="submit" class="btn btn-primary">Add bus</button>
                 </div>
             </div>
         </form>

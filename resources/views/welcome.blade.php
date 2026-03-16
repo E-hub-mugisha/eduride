@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EDURIDE | Smart School Transport</title>
+    <title>EDURIDE | IRERERO Academy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -292,170 +292,6 @@
 
         </section><!-- /Why Us Section -->
         
-
-        
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Contact</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-5 align-items-stretch">
-
-                    <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-                        <div class="info-panel">
-                            <div class="panel-header">
-                                <span class="section-badge">
-                                    <i class="bi bi-chat-dots-fill"></i>
-                                    Get In Touch
-                                </span>
-                                <h3>Let's Bring Your Vision to Life</h3>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-                            </div>
-
-                            <div class="contact-methods">
-                                <div class="method-item">
-                                    <div class="method-icon">
-                                        <i class="bi bi-envelope-paper-fill"></i>
-                                    </div>
-                                    <div class="method-details">
-                                        <span class="method-label">Email Us</span>
-                                        <a href="mailto:support@example.com">support@example.com</a>
-                                    </div>
-                                </div>
-
-                                <div class="method-item">
-                                    <div class="method-icon">
-                                        <i class="bi bi-headset"></i>
-                                    </div>
-                                    <div class="method-details">
-                                        <span class="method-label">Call Us</span>
-                                        <a href="tel:+15558901234">+1 (555) 890-1234</a>
-                                    </div>
-                                </div>
-
-                                <div class="method-item">
-                                    <div class="method-icon">
-                                        <i class="bi bi-pin-map-fill"></i>
-                                    </div>
-                                    <div class="method-details">
-                                        <span class="method-label">Visit Us</span>
-                                        <span>1847 Oak Avenue, Portland, OR 97201</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="stats-strip">
-                                <div class="stat-item">
-                                    <span class="stat-number">98%</span>
-                                    <span class="stat-text">Satisfaction</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number">24/7</span>
-                                    <span class="stat-text">Support</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number">3.2k</span>
-                                    <span class="stat-text">Projects</span>
-                                </div>
-                            </div>
-
-                            <div class="social-connect">
-                                <span>Follow Us</span>
-                                <div class="social-icons">
-                                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Info Panel -->
-
-                    <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-                        <div class="form-card">
-                            <div class="form-card-header">
-                                <div class="header-icon">
-                                    <i class="bi bi-send-fill"></i>
-                                </div>
-                                <div class="header-text">
-                                    <h4>Send Us a Message</h4>
-                                    <p>Fill out the form and our team will respond within 24 hours.</p>
-                                </div>
-                            </div>
-
-                            <form action="forms/contact.php" method="post" class="php-email-form">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="input-group-custom">
-                                            <label>Your Name</label>
-                                            <div class="input-wrapper">
-                                                <i class="bi bi-person"></i>
-                                                <input type="text" name="name" placeholder="John Doe" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="input-group-custom">
-                                            <label>Email Address</label>
-                                            <div class="input-wrapper">
-                                                <i class="bi bi-envelope"></i>
-                                                <input type="email" name="email" placeholder="john@example.com" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="input-group-custom">
-                                            <label>Subject</label>
-                                            <div class="input-wrapper">
-                                                <i class="bi bi-chat-square-text"></i>
-                                                <input type="text" name="subject" placeholder="How can we help?" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="input-group-custom">
-                                            <label>Your Message</label>
-                                            <div class="input-wrapper textarea-wrapper">
-                                                <i class="bi bi-pencil-square"></i>
-                                                <textarea name="message" rows="5" placeholder="Tell us about your project..." required=""></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-actions">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                    <button type="submit" class="btn-submit">
-                                        <span>Send Message</span>
-                                        <i class="bi bi-arrow-right-circle-fill"></i>
-                                    </button>
-
-                                    <div class="secure-note">
-                                        <i class="bi bi-lock-fill"></i>
-                                        <span>Your data is encrypted and secure</span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- End Form Card -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Contact Section -->
         <footer id="footer" class="footer light-background">
 
             <div class="container footer-bottom">
@@ -480,7 +316,7 @@
         <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
         <!-- Preloader -->
-        <div id="preloader"></div>
+        <!-- <div id="preloader"></div> -->
 
         <!-- Vendor JS Files -->
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
