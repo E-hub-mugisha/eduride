@@ -53,16 +53,24 @@ class TripController extends Controller
         ]);
 
         // Load subscriptions with parent and child
-        $subscriptions = ParentTripSubscription::where('route_id', $route->id)
-            ->with(['parent', 'student'])
-            ->get();
+        if ($route) {
+            $subscriptions = ParentTripSubscription::where('route_id', $route->id)
+                ->with(['parent', 'student'])
+                ->get();
 
-        foreach ($subscriptions as $sub) {
-            if ($sub->parent?->email && $sub->student) {
-                Log::info('Sending TripStartedMail to: ' . $sub->parent->email);
-                Mail::to($sub->parent->email)
-                    ->send(new TripStartedMail($trip, $sub->student));
+            if ($subscriptions->isNotEmpty()) {
+                foreach ($subscriptions as $sub) {
+                    if ($sub->parent?->email && $sub->student) {
+                        Log::info('Sending TripStartedMail to: ' . $sub->parent->email);
+                        Mail::to($sub->parent->email)
+                            ->send(new TripStartedMail($trip, $sub->student));
+                    }
+                }
+            } else {
+                Log::info("No subscriptions found for route ID {$route->id}");
             }
+        } else {
+            Log::warning("Route is null, cannot send TripStartedMail.");
         }
 
         return redirect()->route('trips.driverStart', $trip->id)
