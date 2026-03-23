@@ -861,26 +861,14 @@
                 </div>
 
                 {{-- Name row --}}
-                <div class="field-row">
-                    <div class="field-group">
-                        <label class="field-label" for="first_name">First Name <span class="req">*</span></label>
-                        <div class="field-wrap">
-                            <input type="text" class="field-input {{ $errors->has('first_name') ? 'is-error' : '' }}"
-                                name="first_name" id="first_name"
-                                placeholder="Jean" value="{{ old('first_name') }}"
-                                autocomplete="given-name" required>
-                            <i class="bi bi-person field-icon"></i>
-                        </div>
-                    </div>
-                    <div class="field-group">
-                        <label class="field-label" for="last_name">Last Name <span class="req">*</span></label>
-                        <div class="field-wrap">
-                            <input type="text" class="field-input {{ $errors->has('last_name') ? 'is-error' : '' }}"
-                                name="last_name" id="last_name"
-                                placeholder="Mugisha" value="{{ old('last_name') }}"
-                                autocomplete="family-name" required>
-                            <i class="bi bi-person field-icon"></i>
-                        </div>
+                <div class="field-group">
+                    <label class="field-label" for="name">Name <span class="req">*</span></label>
+                    <div class="field-wrap">
+                        <input type="text" class="field-input {{ $errors->has('name') ? 'is-error' : '' }}"
+                            name="name" id="name"
+                            placeholder="Jean Mugisha" value="{{ old('name') }}"
+                            autocomplete="given-name" required>
+                        <i class="bi bi-person field-icon"></i>
                     </div>
                 </div>
 
