@@ -13,7 +13,15 @@
         <i class="bi bi-arrow-left"></i> Back
     </a>
 </div>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form method="POST" action="{{ route('admin.students.store') }}">
 @csrf
 
@@ -23,29 +31,14 @@
         <div class="form-grid">
             <div class="form-group">
                 <label class="form-label">Parent Name <span class="req">*</span></label>
-                <input type="text" name="parent_name" class="form-input {{ $errors->has('parent_name') ? 'error' : '' }}"
-                       value="{{ old('parent_name') }}" required>
-                @error('parent_name') <p class="form-error">{{ $message }}</p> @enderror
-            </div>
-            <div class="form-group">
-                <label class="form-label">Parent Email <span class="req">*</span></label>
-                <input type="email" name="parent_email" class="form-input {{ $errors->has('parent_email') ? 'error' : '' }}"
-                       value="{{ old('parent_email') }}" required>
-                @error('parent_email') <p class="form-error">{{ $message }}</p> @enderror
-            </div>
-            <div class="form-group">
-                <label class="form-label">Phone <span class="req">*</span></label>
-                <input type="tel" name="parent_phone" class="form-input {{ $errors->has('parent_phone') ? 'error' : '' }}"
-                       value="{{ old('parent_phone') }}" required>
-                @error('parent_phone') <p class="form-error">{{ $message }}</p> @enderror
-            </div>
-            <div class="form-group">
-                <label class="form-label">Password <span class="req">*</span></label>
-                <input type="password" name="parent_password" class="form-input" placeholder="Min. 8 characters" required>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Confirm Password <span class="req">*</span></label>
-                <input type="password" name="parent_password_confirmation" class="form-input" required>
+                <select name="parent_id" class="form-select">
+                    <option value="">— select parent -</option>
+                    @foreach($parents as $parent)
+                        <option value="{{ $parent->id }}" {{ old('parent_id') == $parent->id ? 'selected' : '' }}>
+                            {{ $parent->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>

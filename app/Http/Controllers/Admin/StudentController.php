@@ -17,8 +17,8 @@ class StudentController extends Controller
     {
         $students = Student::with(['user', 'route', 'stop'])
             ->active()
-            ->when($request->route_id, fn ($q) => $q->where('route_id', $request->route_id))
-            ->when($request->search,   fn ($q) => $q->where('full_name', 'like', '%' . $request->search . '%'))
+            ->when($request->route_id, fn($q) => $q->where('route_id', $request->route_id))
+            ->when($request->search,   fn($q) => $q->where('full_name', 'like', '%' . $request->search . '%'))
             ->orderBy('full_name')
             ->paginate(15);
 
@@ -31,18 +31,15 @@ class StudentController extends Controller
     {
         $routes = TransportRoute::active()->with('stops')->orderBy('name')->get();
         $stops  = Stop::orderBy('name')->get();
-
-        return view('admin.students.create', compact('routes', 'stops'));
+        $parents = User::where('role', 'parent')->get();
+        return view('admin.students.create', compact('routes', 'stops', 'parents'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             // Parent account
-            'parent_name'    => 'required|string|max:150',
-            'parent_email'   => 'required|email|unique:users,email',
-            'parent_phone'   => 'required|string|max:20',
-            'parent_password'=> 'required|string|min:8|confirmed',
+            'parent_id'      => 'required',  // ✅ fixed
 
             // Student info
             'full_name'      => 'required|string|max:150',
@@ -56,16 +53,9 @@ class StudentController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
-            $parent = User::create([
-                'name'     => $request->parent_name,
-                'email'    => $request->parent_email,
-                'phone'    => $request->parent_phone,
-                'password' => Hash::make($request->parent_password),
-                'role'     => 'parent',
-            ]);
 
             Student::create([
-                'user_id'       => $parent->id,
+                'user_id'       => $request->parent_id,
                 'full_name'     => $request->full_name,
                 'student_id'    => $request->student_id,
                 'grade'         => $request->grade,
